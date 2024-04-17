@@ -65,8 +65,9 @@ kind: Middleware
 metadata:
   name: replacepath
 spec:
-  replacePath:
-    path: /
+  replacePathRegex:
+    regex: '^/grocerynfc(/|$)(.*)'
+    replacement: '/$2'
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
