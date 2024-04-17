@@ -61,6 +61,14 @@ spec:
 #     secret: authsecret
 ---
 apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: replacepath
+spec:
+  replacePath:
+    path: /
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: ingressroute
@@ -71,6 +79,7 @@ spec:
     services:
     - name: app
       port: 8000
-    # middlewares:
+    middlewares:
+    - name: replacepath
     # - name: authmiddleware
     #   namespace: grocerynfc
