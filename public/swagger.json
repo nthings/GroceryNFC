@@ -10,7 +10,8 @@
 	},
 	"info": {
 		"title": "grocerynfc",
-		"version": "1.1.1",
+		"version": "0.0.1",
+		"description": "Fullstack solution to manage grocery store with NFC technology",
 		"license": {
 			"name": "ISC"
 		},
