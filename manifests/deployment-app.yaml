@@ -48,15 +48,10 @@ kind: Ingress
 metadata:
   name: app
   annotations:
-    kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: web
-    traefik.ingress.kubernetes.io/router.middlewares: default-headers
-    traefik.ingress.kubernetes.io/router.service: app
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
 spec:
   rules:
-    - host: grocerynfc.localhost
+    - host: grocerynfc.local
       http:
         paths:
           - path: /
