@@ -65,8 +65,6 @@ kind: IngressRoute
 metadata:
   name: ingressroute
 spec:
-  entryPoints:
-    - http
   routes:
   - match: Host(`nthings-server.duckdns.org`) && PathPrefix(`/grocerynfc`)
     kind: Rule
