@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - deployment-db.yaml
   - deployment-app.yaml
+namespace: grocerynfc
