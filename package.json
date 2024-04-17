@@ -1,0 +1,59 @@
+{
+  "name": "grocerynfc",
+  "version": "0.0.1",
+  "description": "Fullstack solution to manage grocery store with NFC technology",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "predev": "npm run swagger",
+    "prebuild": "npm run swagger",
+    "build": "tsc",
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
+    "swagger": "tsoa spec",
+    "test": "jest",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthings/grocerynfc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthings/grocerynfc/issues"
+  },
+  "homepage": "https://github.com/nthings/grocerynfc#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/faker": "^5.5.9",
+    "@types/jest": "^27.5.2",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^17.0.45",
+    "@types/swagger-ui-express": "^4.1.6",
+    "concurrently": "^7.6.0",
+    "faker": "^5.5.3",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.22",
+    "prettier": "^3.2.5",
+    "ts-jest": "^27.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.11.5",
+    "reflect-metadata": "^0.1.14",
+    "swagger-ui-express": "^4.6.3",
+    "tsoa": "^3.14.1",
+    "typeorm": "^0.2.45"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "exec": "ts-node src/index.ts"
+  }
+}
