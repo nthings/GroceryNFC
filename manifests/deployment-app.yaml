@@ -43,19 +43,36 @@ spec:
       port: 8000
       targetPort: 8000
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: v1
+kind: Secret
+metadata:
+  name: authsecret
+  annotations:
+    secret-generator.v1.mittwald.de/autogenerate: basic-auth
+data:
+  {}
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: authmiddleware
+spec:
+  basicAuth:
+    secret: authsecret
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: app
+  name: ingressroute
 spec:
   entryPoints:
-    - websecure
+    - http
   routes:
-    - kind: Rule
-      match: Host(`grocerynfc.local`)
-      priority: 10
-      services:
-        - name: app
-          port: 8000
-  tls:
-    certResolver: default
+  - match: Host(`nthings-server.duckdns.org`) && PathPrefix(`/grocerynfc`)
+    kind: Rule
+    services:
+    - name: app
+      port: 8000
+    middlewares:
+    - name: authmiddleware
+      namespace: grocerynfc
