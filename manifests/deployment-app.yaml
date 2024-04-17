@@ -71,6 +71,6 @@ spec:
     services:
     - name: app
       port: 8000
-    middlewares:
-    - name: authmiddleware
-      namespace: grocerynfc
+    # middlewares:
+    # - name: authmiddleware
+    #   namespace: grocerynfc
